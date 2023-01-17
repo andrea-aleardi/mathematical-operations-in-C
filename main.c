@@ -22,29 +22,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-double addition (double addends[], int number_of_addends) {
+#include <stdio.h>
+#import "addition.h"
 
-    int i = 0;
-    double sum = 0.0;
-    
-    while (i < number_of_addends) {
-        sum += addends[i];
-        i++;
-    }
-    
-    return sum;
-}
+int main (int argc, const char * argv[]) {
 
-void addition_store (double addends[], int number_of_addends, double *result) {
+    double terms [8] = {10,29,381,2,10,22.3,4,1.1};
+    double sum = addition(terms, sizeof(terms)/sizeof(double));
+    printf("The sum of the terms is: %f\n", sum);
 
-    int i = 0;
-    double sum = 0.0;
-    
-    while (i < number_of_addends) {
-        sum += addends[i];
-        i++;
-    }
+    double result;
+    addition_store(terms, sizeof(terms)/sizeof(double), &result);
+    printf("The value stored in variable result is: %f\n", result);
 
-    *result = sum;
-
+    return 0;
 }
